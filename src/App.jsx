@@ -71,7 +71,63 @@ const reducer = (state, action) => {
         expression: `cos(${state.expression})`,
         result: evaluatedCos.toString()
       };
-    case 'TAN':
+    case 'ln':
+      const evaluatedLn = Math.log(eval(state.expression));
+      return {
+        ...state,
+        expression: `ln(${state.expression})`,
+        result: evaluatedLn.toString()
+      };
+      case 'ln10':
+      const evaluatedLn10 = Math.log10(eval(state.expression));
+      return {
+        ...state,
+        expression: `tan(${state.expression})`,
+        result: evaluatedLn10.toString()
+      };
+      case 'e':
+      const evaluatedE = Math.E(eval(state.expression));
+      return {
+        ...state,
+        expression: `e(${state.expression})`,
+        result: evaluatedE.toString()
+      };
+      case 'ln2':
+      const evaluatedLn2 = Math.log2(eval(state.expression));
+      return {
+        ...state,
+        expression: `log2(${state.expression})`,
+        result: evaluatedLn2.toString()
+      };
+      case 'SINH':
+      const evaluatedSinh = Math.sinh(eval(state.expression));
+      return {
+        ...state,
+        expression: `sinh(${state.expression})`,
+        result: evaluatedSinh.toString()
+      };
+      case 'COSH':
+      const evaluatedCosh = Math.cosh(eval(state.expression));
+      return {
+        ...state,
+        expression: `cosh(${state.expression})`,
+        result: evaluatedCosh.toString()
+      };
+      case 'TANH':
+      const evaluatedTanh = Math.tanh(eval(state.expression));
+      return {
+        ...state,
+        expression: `tanh(${state.expression})`,
+        result: evaluatedTanh.toString()
+      };
+      case 'PI':
+      const evaluatedPi = Math.PI(eval(state.expression));
+      return {
+        ...state,
+        expression: `pi(${state.expression})`,
+        result: evaluatedPi.toString()
+      };
+      case 'TAN':
       const evaluatedTan = Math.tan(eval(state.expression));
       return {
         ...state,
@@ -121,9 +177,33 @@ const App = () => {
   const handleCosInput = () => {
     dispatch({ type: 'COS' });
   };
-
   const handleTanInput = () => {
     dispatch({ type: 'TAN' });
+  };
+
+  const handleNaturallog = () => {
+    dispatch({ type: 'ln' });
+  };
+  const handleLogBase10 = () => {
+    dispatch({ type: 'ln10' });
+  };
+  const handleExponential = () => {
+    dispatch({ type: 'e' });
+  };
+  const handleLogBase2 = () => {
+    dispatch({ type: 'ln2' });
+  };
+  const handleSinh = () => {
+    dispatch({ type: 'SINH' });
+  };
+  const handleCosh = () => {
+    dispatch({ type: 'COSH' });
+  };
+  const handleTanh = () => {
+    dispatch({ type: 'TANH' });
+  };
+  const handlePI = () => {
+    dispatch({ type: 'PI' });
   };
 
     return (
@@ -172,7 +252,7 @@ const App = () => {
         <button onClick={handleTanInput}>tan</button>
         <button onClick={handleNaturallog}>ln</button>
         <button onClick={handleLogBase10}>log10</button>
-        <button onClick={handleLogBase10}>log10</button>
+        <button onClick={handleExponential}>e</button>
         
       </div>
 
