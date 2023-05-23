@@ -181,7 +181,7 @@ const App = () => {
     dispatch({ type: 'TAN' });
   };
 
-  const handleNaturallog = () => {
+  const handleNaturalLog = () => {
     dispatch({ type: 'ln' });
   };
   const handleLogBase10 = () => {
@@ -207,63 +207,60 @@ const App = () => {
   };
 
     return (
-      <>
-      <div>
-        <input type="text" value={state.expression} />
-        <input type="text" value={state.result} readOnly />
-      </div>
-  
-      <div style={{marginTop: "2rem"}}>
-        <button onClick={() => handleDigitInput('1')}>1</button>
-        <button onClick={() => handleDigitInput('2')}>2</button>
-        <button onClick={() => handleDigitInput('3')}>3</button>
-        <button onClick={() => handleDigitInput('4')}>4</button>
-        <button onClick={() => handleDigitInput('5')}>5</button>
-      </div>
-  
-      <div>
-        <button onClick={() => handleDigitInput('6')}>6</button>
-        <button onClick={() => handleDigitInput('7')}>7</button>
-        <button onClick={() => handleDigitInput('8')}>8</button>
-        <button onClick={() => handleDigitInput('9')}>9</button>
-        <button onClick={() => handleDigitInput('0')}>0</button>
-      </div>
-  
-      <div>  
-        <button onClick={() => handleOperatorInput('+')}>+</button>
-        <button onClick={() => handleOperatorInput('-')}>-</button>
-        <button onClick={() => handleOperatorInput('*')}>x</button>
-        <button onClick={() => handleOperatorInput('/')}>/</button>
-        <button onClick={handleDecimalInput}>.</button>
-        
-      </div>
-    
-      <div> 
-        <button onClick={handleEvaluateInput}>=</button>
-        <button onClick={handleClearInput}>AC</button>
-        <button onClick={handleSquareInput}>^2</button>
-        <button onClick={handleSquareRootInput}>√</button>
-        <button onClick={handleSinInput}>sin</button>
-        
+      <div className="container">
+      <div className="input-container">
+        <input type="text" value={state.expression} className="input-field" />
+        <input type="text" value={state.result} readOnly className="result-field" />
       </div>
 
-      <div> 
-        <button onClick={handleCosInput}>cos</button>
-        <button onClick={handleTanInput}>tan</button>
-        <button onClick={handleNaturallog}>ln</button>
-        <button onClick={handleLogBase10}>log10</button>
-        <button onClick={handleExponential}>e</button>
-        
+      <div className="button-container">
+        <button onClick={() => handleDigitInput('1')} className="button">1</button>
+        <button onClick={() => handleDigitInput('2')} className="button">2</button>
+        <button onClick={() => handleDigitInput('3')} className="button">3</button>
+        <button onClick={() => handleDigitInput('4')} className="button">4</button>
+        <button onClick={() => handleDigitInput('5')} className="button">5</button>
       </div>
 
-      <div>
-        <button onClick={handleLogBase2}>log2</button>
-        <button onClick={handleSinh}>sinh</button>
-        <button onClick={handleCosh}>cosh</button>
-        <button onClick={handleTanh}>tanh</button>
-        <button onClick={handlePI}>PI</button>
+      <div className="button-container">
+        <button onClick={() => handleDigitInput('6')} className="button">6</button>
+        <button onClick={() => handleDigitInput('7')} className="button">7</button>
+        <button onClick={() => handleDigitInput('8')} className="button">8</button>
+        <button onClick={() => handleDigitInput('9')} className="button">9</button>
+        <button onClick={() => handleDigitInput('0')} className="button">0</button>
       </div>
-      </>
+
+      <div className="button-container">
+        <button onClick={() => handleOperatorInput('+')} className="button math-button">+</button>
+        <button onClick={() => handleOperatorInput('-')} className="button math-button">-</button>
+        <button onClick={() => handleOperatorInput('*')} className="button math-button">x</button>
+        <button onClick={() => handleOperatorInput('/')} className="button math-button">/</button>
+        <button onClick={handleDecimalInput} className="button math-button">.</button>
+      </div>
+
+      <div className="button-container">
+        <button onClick={handleEvaluateInput} className="button evaluate-button">=</button>
+        <button onClick={handleClearInput} className="button clear-button">AC</button>
+        <button onClick={handleSquareInput} className="button function-button">^2</button>
+        <button onClick={handleSquareRootInput} className="button function-button">√</button>
+        <button onClick={handleSinInput} className="button function-button">sin</button>
+      </div>
+
+      <div className="button-container">
+        <button onClick={handleCosInput} className="button function-button">cos</button>
+        <button onClick={handleTanInput} className="button function-button">tan</button>
+        <button onClick={handleNaturalLog} className="button function-button">ln</button>
+        <button onClick={handleLogBase10} className="button function-button">log10</button>
+        <button onClick={handleExponential} className="button function-button">e</button>
+      </div>
+
+      <div className="button-container">
+        <button onClick={handleLogBase2} className="button function-button">log2</button>
+        <button onClick={handleSinh} className="button function-button">sinh</button>
+        <button onClick={handleCosh} className="button function-button">cosh</button>
+        <button onClick={handleTanh} className="button function-button">tanh</button>
+        <button onClick={handlePI} className="button function-button">PI</button>
+      </div>
+    </div>
     );
     }
     
