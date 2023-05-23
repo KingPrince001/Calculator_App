@@ -160,7 +160,32 @@ const App = () => {
 
   const handleEvaluateInput = () => {
     dispatch({ type: 'EVALUATE' });
+    document.body.style.background = 'rgb(2,0,36)';
+    document.body.style.background = 'radial-gradient(circle, rgba(2,0,36,1) 0%, rgba(172,127,149,1) 35%, rgba(0,212,255,1) 100%)';
+    document.body.style.animation = 'backgroundAnimation 30s linear infinite alternate';
   };
+  
+  // Define the keyframe animation
+  const styleSheet = document.createElement('style');
+  styleSheet.innerHTML = `
+  @keyframes backgroundAnimation {
+    0% {
+      background: rgb(2,0,36);
+    }
+    25% {
+      background: radial-gradient(circle, rgba(2,0,36,1) 0%, rgba(172,127,149,1) 35%, rgba(0,212,255,1) 100%);
+    }
+    50% {
+      background: rgb(2,0,36);
+    }
+    100% {
+      background: radial-gradient(circle, rgba(2,0,36,1) 0%, rgba(172,127,149,1) 35%, rgba(0,212,255,1) 100%);
+    }
+  }
+  `;
+  document.head.appendChild(styleSheet);
+  
+  
 
   const handleSquareInput = () => {
     dispatch({ type: 'SQUARE' });
