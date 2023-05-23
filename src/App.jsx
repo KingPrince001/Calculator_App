@@ -62,7 +62,7 @@ const reducer = (state, action) => {
       return {
         ...state,
         expression: `sin(${state.expression})`,
-        result: evaluatedSin.toString()
+        // result: evaluatedSin.toString()
       };
     case 'COS':
       const evaluatedCos = Math.cos(eval(state.expression));
