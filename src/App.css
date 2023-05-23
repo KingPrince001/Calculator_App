@@ -1,6 +1,5 @@
 body {
-  /* background: rgb(2,0,36);
-/* background: radial-gradient(circle, rgba(2,0,36,1) 0%, rgba(172,127,149,1) 35%, rgba(0,212,255,1) 100%); */ */
+background-color:white;
 }
 .container {
     display: flex;
@@ -21,25 +20,20 @@ body {
     justify-content: center;
     margin-bottom: 1rem;
     margin-top:20px ;
-    /* border: 1.5px solid; */
-    border-radius: 5px;
+   
     width: 22vw;
   }
   .input-field {
     width: 120px;
     height: 30px;
-    /* outline: none;
-    border: none; */
-  
-    /* margin-right: 10px; */
+   border-radius: 5px 0 0 5px;
     text-align: right;
   }
   
   .result-field {
     width: 150px;
     height: 30px;
-    /* outline: none;
-    border: none; */
+    border-radius: 0 5px 5px 0;
     text-align: right;
     font-weight: bold;
   }
@@ -55,6 +49,7 @@ body {
     width: 50px;
     height: 50px;
     font-size: 16px;
+    border-radius: 5px;
     border: none;
     outline: none;
     background-color: #eee;
@@ -110,6 +105,11 @@ body {
   }
   
   @media (max-width: 480px) {
+
+    .container{
+      margin-top: 20px;
+      width: 90%;
+    }
     .button-container {
       grid-template-columns: repeat(5, 1fr);
     }
@@ -122,6 +122,12 @@ body {
     .input-container {
         width: 90%;
         padding: 10px;
+    }
+    .input-field {
+      width: 160px;
+    }
+    .result-field {
+      width: 164px;
     }
   }
   
