@@ -1,35 +1,54 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { useReducer } from "react";
+
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [state, dispatch] = useReducer(reducer, initialState);
 
-  return (
-    <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+const handleDigitInput = (digit) => {
+  dispatch({ type: 'INPUT_DIGIT', payload: digit });
+};
+
+const handleOperatorInput = (operator) => {
+  dispatch({ type: 'INPUT_OPERATOR', payload: operator });
+};
+
+const handleDecimalInput = () => {
+  dispatch({ type: 'INPUT_DECIMAL' });
+};
+
+const handleClearInput = () => {
+  dispatch({ type: 'CLEAR' });
+};
+
+const handleEvaluateInput = () => {
+  dispatch({ type: 'EVALUATE' });
+};
+
+const handleSquareInput = () => {
+  dispatch({ type: 'SQUARE' });
+};
+
+const handleSquareRootInput = () => {
+  dispatch({ type: 'SQUARE_ROOT' });
+};
+
+const handleSinInput = () => {
+  dispatch({ type: 'SIN' });
+};
+
+const handleCosInput = () => {
+  dispatch({ type: 'COS' });
+};
+
+const handleTanInput = () => {
+  dispatch({ type: 'TAN' });
+};
+
+return (
+  <div>
+    
+  </div>
+)
 }
 
 export default App
