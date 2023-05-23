@@ -149,20 +149,39 @@ const App = () => {
         <button onClick={() => handleDigitInput('0')}>0</button>
       </div>
   
-      <div>
-         <button onClick={() => handleOperatorInput('+')}>+</button>
+      <div>  
+        <button onClick={() => handleOperatorInput('+')}>+</button>
         <button onClick={() => handleOperatorInput('-')}>-</button>
+        <button onClick={() => handleOperatorInput('*')}>x</button>
+        <button onClick={() => handleOperatorInput('/')}>/</button>
         <button onClick={handleDecimalInput}>.</button>
-        <button onClick={handleEvaluateInput}>=</button>
-        <button onClick={handleClearInput}>AC</button>
+        
       </div>
     
       <div> 
+        <button onClick={handleEvaluateInput}>=</button>
+        <button onClick={handleClearInput}>AC</button>
         <button onClick={handleSquareInput}>^2</button>
         <button onClick={handleSquareRootInput}>√</button>
         <button onClick={handleSinInput}>sin</button>
+        
+      </div>
+
+      <div> 
         <button onClick={handleCosInput}>cos</button>
         <button onClick={handleTanInput}>tan</button>
+        <button onClick={handleNaturallog}>ln</button>
+        <button onClick={handleLogBase10}>log10</button>
+        <button onClick={handleLogBase10}>log10</button>
+        
+      </div>
+
+      <div>
+        <button onClick={handleLogBase2}>log2</button>
+        <button onClick={handleSinh}>sinh</button>
+        <button onClick={handleCosh}>cosh</button>
+        <button onClick={handleTanh}>tanh</button>
+        <button onClick={handlePI}>PI</button>
       </div>
       </>
     );
