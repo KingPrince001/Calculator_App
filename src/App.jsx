@@ -239,19 +239,19 @@ const App = () => {
       </div>
 
       <div className="button-container">
-        <button onClick={() => handleDigitInput('1')} className="button">1</button>
-        <button onClick={() => handleDigitInput('2')} className="button">2</button>
-        <button onClick={() => handleDigitInput('3')} className="button">3</button>
-        <button onClick={() => handleDigitInput('4')} className="button">4</button>
-        <button onClick={() => handleDigitInput('5')} className="button">5</button>
+        <button onClick={() => handleDigitInput('1')} className="button numbers-button">1</button>
+        <button onClick={() => handleDigitInput('2')} className="button numbers-button">2</button>
+        <button onClick={() => handleDigitInput('3')} className="button numbers-button">3</button>
+        <button onClick={() => handleDigitInput('4')} className="button numbers-button">4</button>
+        <button onClick={() => handleDigitInput('5')} className="button numbers-button">5</button>
       </div>
 
       <div className="button-container">
-        <button onClick={() => handleDigitInput('6')} className="button">6</button>
-        <button onClick={() => handleDigitInput('7')} className="button">7</button>
-        <button onClick={() => handleDigitInput('8')} className="button">8</button>
-        <button onClick={() => handleDigitInput('9')} className="button">9</button>
-        <button onClick={() => handleDigitInput('0')} className="button">0</button>
+        <button onClick={() => handleDigitInput('6')} className="button numbers-button">6</button>
+        <button onClick={() => handleDigitInput('7')} className="button numbers-button">7</button>
+        <button onClick={() => handleDigitInput('8')} className="button numbers-button">8</button>
+        <button onClick={() => handleDigitInput('9')} className="button numbers-button">9</button>
+        <button onClick={() => handleDigitInput('0')} className="button numbers-button">0</button>
       </div>
 
       <div className="button-container">

@@ -85,12 +85,84 @@ background-color:white;
   .math-button {
     background-color: #333;
     color: white;
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+    animation: changeColor 4s linear infinite;
+    animation-direction: alternate;
   }
-  
+  @keyframes changeColor {
+    0%{
+        background-color:blue ; 
+    }
+    50%{
+        background-color: cyan;
+    }
+    100%{
+        background-color: #030029;   
+    }
+}
+  .math-button:before {
+    content: "";
+    position: absolute;
+    background-image: linear-gradient(180deg,#865dff,#e384ff);
+    width: 80px;
+    height: 540%;
+    margin-left: -100px;
+    margin-top: -50px;
+    animation: rotate 35s linear infinite;
+    z-index: -1;
+  }
+@keyframes rotate {
+  0% {
+    transform: rotate(0deg);
+  }
+  100%{
+    transform: rotate(360deg);
+  }
+}
+.math-button:after {
+  content: "";
+  position: absolute;
+  background-color: #030029;
+  inset: 8px;
+  border-radius: inherit;
+  z-index: -1;
+}
+
   .result-button {
     background-color: #333;
     color: white;
   }
+.numbers-button {
+  z-index: 1;
+  overflow: hidden;
+  position: relative;
+  background-color: #eee;
+  transition: all 1s ease-in-out;
+}
+.numbers-button:hover {
+  background-image: linear-gradient(180deg,#865dff,#e384ff) ;
+
+}
+  .numbers-button:before{ 
+content: "";
+position: absolute;
+background-color: #eee;
+top: 0;
+left: 0;
+right: 0;
+bottom: 0;
+z-index: -1;
+border-radius: 50%;
+transform: scale(1.5);
+transition: all 1s ease-in-out;
+
+  }
+  .numbers-button:before:hover {
+    transform: scale(0);
+  }
+    
   
   @media (max-width: 768px) {
     .button-container {
