@@ -1,7 +1,7 @@
 
 import './App.css'
 
-import React, { useReducer } from 'react';
+import React, { useReducer, useEffect } from 'react';
 
 
 const initialState = {
@@ -141,6 +141,35 @@ const reducer = (state, action) => {
 
 const App = () => {
   const [state, dispatch] = useReducer(reducer, initialState);
+  useEffect(() => {
+    const handleKeyPress = (event) => {
+      const key = event.key;
+      const isNumber = /^[0-9]$/.test(key);
+      const isOperator = /^[\+\-\*\/]$/.test(key);
+      const isDecimal = /^[\.,]$/.test(key);
+      const isEnter = /^Enter$/.test(key);
+      const isBackspace = /^Backspace$/.test(key);
+
+      if (isNumber) {
+        handleDigitInput(key);
+      } else if (isOperator) {
+        handleOperatorInput(key);
+      } else if (isDecimal) {
+        handleDecimalInput();
+      } else if (isEnter) {
+        handleEvaluateInput();
+      } else if (isBackspace) {
+        handleClearInput();
+        // adding functionality to delete the last character
+      }
+    };
+
+    window.addEventListener('keydown', handleKeyPress);
+
+    return () => {
+      window.removeEventListener('keydown', handleKeyPress);
+    };
+  }, []);
 
   const handleDigitInput = (digit) => {
     dispatch({ type: 'INPUT_DIGIT', payload: digit });
