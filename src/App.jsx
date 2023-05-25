@@ -1,7 +1,5 @@
-
 import './App.css'
-
-import React, { useReducer, useEffect } from 'react';
+import { useReducer, useEffect } from 'react';
 
 
 const initialState = {
@@ -13,22 +11,18 @@ const reducer = (state, action) => {
   switch (action.type) {
     case 'INPUT_DIGIT':
       return {
-        ...state,
         expression: state.expression + action.payload
       };
     case 'INPUT_OPERATOR':
       return {
-        ...state,
         expression: state.expression + action.payload
       };
     case 'INPUT_DECIMAL':
       return {
-        ...state,
         expression: state.expression + '.'
       };
     case 'CLEAR':
       return {
-        ...state,
         expression: '',
         result: ''
       };
@@ -36,103 +30,90 @@ const reducer = (state, action) => {
       try {
         const evaluatedResult = eval(state.expression);
         return {
-          ...state,
-          result: evaluatedResult.toString()
+          result: `= ${evaluatedResult}`
         };
       } catch (error) {
         return {
-          ...state,
           result: 'Error'
         };
       }
     case 'SQUARE':
+      const evaluatedSq = Math.pow(state.expression, 2);
       return {
-        ...state,
-        expression: `Math.pow(${state.expression}, 2)`,
+        expression: `Sq(${state.expression})`,
+        result:  `= ${evaluatedSq}`
       };
     case 'SQUARE_ROOT':
       const evaluatedSqrt = Math.sqrt(eval(state.expression));
       return {
-        ...state,
         expression: `sqrt(${state.expression})`,
-        result: evaluatedSqrt.toString()
+        result:  `= ${evaluatedSqrt}`
       };
     case 'SIN':
       const evaluatedSin = Math.sin(eval(state.expression));
       return {
-        ...state,
         expression: `sin(${state.expression})`,
-        result: evaluatedSin.toString()
+        result:  `= ${evaluatedSin}`
       };
     case 'COS':
       const evaluatedCos = Math.cos(eval(state.expression));
       return {
-        ...state,
         expression: `cos(${state.expression})`,
-        result: evaluatedCos.toString()
+        result:  `= ${evaluatedCos}`
       };
     case 'ln':
       const evaluatedLn = Math.log(eval(state.expression));
       return {
-        ...state,
         expression: `ln(${state.expression})`,
-        result: evaluatedLn.toString()
+        result:  `= ${evaluatedLn}`
       };
       case 'ln10':
       const evaluatedLn10 = Math.log10(eval(state.expression));
       return {
-        ...state,
         expression: `Log10(${state.expression})`,
-        result: evaluatedLn10.toString()
+        result:  `= ${evaluatedLn10}`
       };
       case 'e':
-      const evaluatedE = Math.E(eval(state.expression));
+      const evaluatedE = Math.E;
       return {
-        ...state,
-        expression: `e(${state.expression})`,
-        result: evaluatedE.toString()
+        expression: 'e',
+        result:  `= ${evaluatedE}`
       };
       case 'ln2':
       const evaluatedLn2 = Math.log2(eval(state.expression));
       return {
-        ...state,
         expression: `log2(${state.expression})`,
-        result: evaluatedLn2.toString()
+        result:  `= ${evaluatedLn2}`
       };
       case 'SINH':
       const evaluatedSinh = Math.sinh(eval(state.expression));
       return {
-        ...state,
         expression: `sinh(${state.expression})`,
-        result: evaluatedSinh.toString()
+        result:  `= ${evaluatedSinh}`
       };
       case 'COSH':
       const evaluatedCosh = Math.cosh(eval(state.expression));
       return {
-        ...state,
         expression: `cosh(${state.expression})`,
-        result: evaluatedCosh.toString()
+        result: `= ${evaluatedCosh}`
       };
       case 'TANH':
       const evaluatedTanh = Math.tanh(eval(state.expression));
       return {
-        ...state,
         expression: `tanh(${state.expression})`,
-        result: evaluatedTanh.toString()
+        result:  `= ${evaluatedTanh}`
       };
       case 'PI':
-      const evaluatedPi = Math.PI(eval(state.expression));
+      const evaluatedPi = Math.PI;
       return {
-        ...state,
-        expression: `pi(${state.expression})`,
-        result: evaluatedPi.toString()
+        expression: 'Pi',
+        result: `= ${evaluatedPi}`
       };
       case 'TAN':
       const evaluatedTan = Math.tan(eval(state.expression));
       return {
-        ...state,
         expression: `tan(${state.expression})`,
-        result: evaluatedTan.toString()
+        result: evaluatedTan `= ${evaluatedTan}`
       };
     default:
       return state;
@@ -172,6 +153,7 @@ const App = () => {
   }, []);
 
   const handleDigitInput = (digit) => {
+
     dispatch({ type: 'INPUT_DIGIT', payload: digit });
   };
 
@@ -180,10 +162,12 @@ const App = () => {
   };
 
   const handleDecimalInput = () => {
+
     dispatch({ type: 'INPUT_DECIMAL' });
   };
 
   const handleClearInput = () => {
+
     dispatch({ type: 'CLEAR' });
   };
 
